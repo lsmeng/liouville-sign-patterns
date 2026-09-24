@@ -65,3 +65,7 @@ On some Linux machines `lake exe cache get` needs a higher open-file limit (`uli
 | `OddCase/Mixed.lean` | unequal pairs without Mangerel; the unconditional theorem |
 | `OddCase/General.lean` | Theorem F for arbitrary completely multiplicative f |
 | `Audit.lean` | statements and axiom audit |
+
+## License
+
+Apache License 2.0 (see `LICENSE`), copyright 2026 Lingsen Meng. The fetched dependency [CaptainSude/Liouville-Goldbach](https://github.com/CaptainSude/Liouville-Goldbach) is not covered by this license.
