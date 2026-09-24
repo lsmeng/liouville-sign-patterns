@@ -1,7 +1,16 @@
-# Fresh-clone build and axiom audit, Geo workstation, 2026-09-24T08:43:37Z
-# Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)
-# lake update && lake exe cache get && lake build -> success
-
+== Thu 24 Sep 2026 02:00:53 PM UTC fresh build of working tree (Theorem F added)
+No files to download
+Decompressed 8702 already-cached file(s)
+Completed successfully in 32706 ms!
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 8892 file(s)
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+✔ [8926/8928] Built OddCase.General (17s)
+✔ [8927/8928] Built OddCase (9.5s)
+Build completed successfully (8928 jobs).
+== axiom audit
 @OddCase.all_four_patterns_unconditional : ∀ {N : ℕ},
   2 ≤ N →
     N ≠ 2 →
@@ -17,6 +26,29 @@
               0 < b ∧ a + b = p ∧ LiouvilleGoldbach.Final.liouville a = e ∧ LiouvilleGoldbach.Final.liouville b = e
 @OddCase.mixedPair_of_ge : ∀ {N : ℕ}, 11 ≤ N → SignPatterns.MixedPair N
 OddCase.mangerel_nonextremality : SignPatterns.MangerelNonextremality
+@OddCase.legendre_of_no_equal_pair : ∀ {f : ℕ → ℤ},
+  f 1 = 1 →
+    (∀ (n : ℕ), 0 < n → f n = 1 ∨ f n = -1) →
+      (∀ (a b : ℕ), f (a * b) = f a * f b) →
+        f 2 = -1 →
+          f 3 = -1 →
+            f 5 = -1 →
+              ∀ {p : ℕ} [inst : Fact (Nat.Prime p)],
+                11 ≤ p →
+                  ∀ {e : ℤ},
+                    e = 1 ∨ e = -1 →
+                      (¬∃ a b, 0 < a ∧ 0 < b ∧ a + b = p ∧ f a = e ∧ f b = e) →
+                        p % 4 = 3 ∧ ∀ (n : ℕ), 0 < n → 2 * n < p → f n = legendreSym p ↑n
+@OddCase.legendre_of_no_mixed_pair : ∀ {f : ℕ → ℤ},
+  f 1 = 1 →
+    (∀ (n : ℕ), 0 < n → f n = 1 ∨ f n = -1) →
+      (∀ (a b : ℕ), f (a * b) = f a * f b) →
+        f 2 = -1 →
+          f 3 = -1 →
+            ∀ {p : ℕ} [inst : Fact (Nat.Prime p)],
+              7 ≤ p →
+                (¬∃ a b, 0 < a ∧ 0 < b ∧ a + b = p ∧ f a ≠ f b) →
+                  p % 4 = 1 ∧ ∀ (n : ℕ), 0 < n → 2 * n < p → f n = legendreSym p ↑n
 'OddCase.all_four_patterns_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OddCase.equal_pair_at_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OddCase.equal_pair_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -32,3 +64,6 @@ OddCase.mangerel_nonextremality : SignPatterns.MangerelNonextremality
 'OddCase.not_pp_six' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OddCase.not_pp_nine' depends on axioms: [propext, Classical.choice, Quot.sound]
 'OddCase.not_mixed_ten' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.legendre_of_no_equal_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.legendre_of_no_mixed_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+== done Thu 24 Sep 2026 02:05:49 PM UTC

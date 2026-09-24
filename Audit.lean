@@ -6,6 +6,8 @@ import OddCase
 #check @OddCase.equal_pair_at_prime
 #check @OddCase.mixedPair_of_ge
 #check @OddCase.mangerel_nonextremality
+#check @OddCase.legendre_of_no_equal_pair
+#check @OddCase.legendre_of_no_mixed_pair
 
 #print axioms OddCase.all_four_patterns_unconditional
 #print axioms OddCase.equal_pair_at_prime
@@ -22,3 +24,5 @@ import OddCase
 #print axioms OddCase.not_pp_six
 #print axioms OddCase.not_pp_nine
 #print axioms OddCase.not_mixed_ten
+#print axioms OddCase.legendre_of_no_equal_pair
+#print axioms OddCase.legendre_of_no_mixed_pair

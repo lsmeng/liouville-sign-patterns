@@ -13,6 +13,12 @@ theorem OddCase.all_four_patterns_unconditional {N : ℕ} (hN : 2 ≤ N)
 
 `SignPair N s t` means `∃ a b, 0 < a ∧ 0 < b ∧ a + b = N ∧ liouville a = s ∧ liouville b = t`, where `liouville` is mathlib's `ArithmeticFunction.liouville`. The statement carries no hypothesis beyond the range and the exceptions, and `#print axioms` reports only `propext`, `Classical.choice` and `Quot.sound`.
 
+The same argument, applied to an arbitrary completely multiplicative `f : ℕ → {±1}`, shows that the Legendre symbol is the only obstruction at primes:
+
+**Theorem F.** Let `f` be completely multiplicative with values `±1` and `f(2) = f(3) = -1`. If `f(5) = -1` and a prime `p ≥ 11` has no `a + b = p` with `f(a) = f(b) = ε`, then `p ≡ 3 (mod 4)` and `f(n) = (n/p)` for `0 < n < p/2`. If a prime `p ≥ 7` has no `a + b = p` with `f(a) ≠ f(b)`, then `p ≡ 1 (mod 4)` and `f(n) = (n/p)` for `0 < n < p/2`.
+
+Both conclusions are attained: for p = 43, 67, 163 the completely multiplicative extension of `(·/p)` has no equal pair at p, and for p = 29, 101 it has no unequal pair.
+
 The accompanying paper is *All four Liouville sign patterns occur in the binary decompositions of every integer N ≥ 11* (L. Meng), which explains the mathematics.
 
 ## Main declarations
@@ -23,6 +29,8 @@ The accompanying paper is *All four Liouville sign patterns occur in the binary 
 | `OddCase.equal_pair_at_prime` | every prime p ≥ 5 is a + b with λ(a) = λ(b) = ε, for each ε = ±1 |
 | `OddCase.OneExcl.exact_bands` | one-exclusion rigidity at an odd modulus p with 3 ∤ p, 7 ∤ p (dilation laws for 2, 3, 5) |
 | `OddCase.mixedPair_of_ge` | every N ≥ 11 has a pair with λ(a) ≠ λ(b) |
+| `OddCase.legendre_of_no_equal_pair` | Theorem F, equal patterns: a missing (ε, ε) pair at a prime p ≥ 11 forces f = (·/p) on (0, p/2), p ≡ 3 (mod 4) |
+| `OddCase.legendre_of_no_mixed_pair` | Theorem F, mixed patterns: a missing unequal pair at a prime p ≥ 7 forces f = (·/p) on (0, p/2), p ≡ 1 (mod 4) |
 | `OddCase.mangerel_nonextremality` | \|∑_{a<N} λ(a)λ(N−a)\| < N − 1 for N ≥ 11 (Mangerel, IMRN 2024, Thm 1.2), re-derived |
 | `SignPatterns.positivePair_even` | every even N ∉ {4, 6} is a + b with λ(a) = λ(b) = 1 |
 | `OddCase.not_pair_two`, …, `OddCase.not_mixed_ten` | the seven exceptions are sharp |
@@ -55,4 +63,5 @@ On some Linux machines `lake exe cache get` needs a higher open-file limit (`uli
 | `OddCase/Main.lean` | bridge to the odd completion; equal pairs at primes |
 | `OddCase/Patterns.lean` | odd totals, the four patterns (with Mangerel's theorem as a hypothesis), sharpness |
 | `OddCase/Mixed.lean` | unequal pairs without Mangerel; the unconditional theorem |
+| `OddCase/General.lean` | Theorem F for arbitrary completely multiplicative f |
 | `Audit.lean` | statements and axiom audit |
