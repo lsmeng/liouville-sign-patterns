@@ -1,0 +1,34 @@
+# Fresh-clone build and axiom audit, Geo workstation, 2026-09-24T08:43:37Z
+# Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)
+# lake update && lake exe cache get && lake build -> success
+
+@OddCase.all_four_patterns_unconditional : ∀ {N : ℕ},
+  2 ≤ N →
+    N ≠ 2 →
+      N ≠ 3 →
+        N ≠ 4 → N ≠ 5 → N ≠ 6 → N ≠ 9 → N ≠ 10 → ∀ {s t : ℤ}, s = 1 ∨ s = -1 → t = 1 ∨ t = -1 → OddCase.SignPair N s t
+@OddCase.equal_pair_at_prime : ∀ {p : ℕ},
+  Nat.Prime p →
+    5 ≤ p →
+      ∀ {e : ℤ},
+        e = 1 ∨ e = -1 →
+          ∃ a b,
+            0 < a ∧
+              0 < b ∧ a + b = p ∧ LiouvilleGoldbach.Final.liouville a = e ∧ LiouvilleGoldbach.Final.liouville b = e
+@OddCase.mixedPair_of_ge : ∀ {N : ℕ}, 11 ≤ N → SignPatterns.MixedPair N
+OddCase.mangerel_nonextremality : SignPatterns.MangerelNonextremality
+'OddCase.all_four_patterns_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.equal_pair_at_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.equal_pair_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.OneExcl.exact_bands' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.not_allEqual_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.mixedPair_of_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.mangerel_nonextremality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SignPatterns.positivePair_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.not_pair_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.not_pair_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.not_pp_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.not_mixed_five' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.not_pp_six' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.not_pp_nine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OddCase.not_mixed_ten' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,22 @@
+name = "liouvilleSignPatterns"
+version = "0.1.0"
+defaultTargets = ["SignPatterns", "OddCase"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "de2ef68216c6074f338c8e61890ee0a379ddfb9b"
+
+# The background development (even totals, 2p theorem, Extension lemma, small-prime lemma),
+# pinned to the audited release commit. Not vendored: it is fetched by Lake.
+[[require]]
+name = "liouvilleGoldbach"
+git = "https://github.com/CaptainSude/Liouville-Goldbach.git"
+rev = "da3c528c16975781e21f3b7270c61331e70da8d2"
+subDir = "lean"
+
+[[lean_lib]]
+name = "SignPatterns"
+
+[[lean_lib]]
+name = "OddCase"
